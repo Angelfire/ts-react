@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import { getExclamationMarks } from '../../helpers/lib';
 
 import './StatefulHello.css';
@@ -15,22 +15,11 @@ interface State {
 class StatefulHello extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {
-      currentEnthusiasm: props.enthusiasmLevel || 1
-    };
+    this.state = { currentEnthusiasm: props.enthusiasmLevel || 1 };
   }
 
-  updateEnthusiasm(currentEnthusiasm: number) {
-    this.setState({ currentEnthusiasm });
-  }
-
-  onIncrement = () => {
-    this.updateEnthusiasm(this.state.currentEnthusiasm + 1);
-  }
-
-  onDecrement = () => {
-    this.updateEnthusiasm(this.state.currentEnthusiasm - 1);
-  }
+  onIncrement = () => this.updateEnthusiasm(this.state.currentEnthusiasm + 1);
+  onDecrement = () => this.updateEnthusiasm(this.state.currentEnthusiasm - 1);
 
   render() {
     const { name } = this.props;
@@ -43,12 +32,16 @@ class StatefulHello extends React.Component<Props, State> {
     return (
       <div className="hello">
         <div className="greeting">
-          Hello {name + getExclamationMarks(currentEnthusiasm)}
+          Hello {name + getExclamationMarks(this.state.currentEnthusiasm)}
         </div>
         <button onClick={this.onDecrement}>-</button>
         <button onClick={this.onIncrement}>+</button>
       </div>
     );
+  }
+
+  updateEnthusiasm(currentEnthusiasm: number) {
+    this.setState({ currentEnthusiasm });
   }
 }
 

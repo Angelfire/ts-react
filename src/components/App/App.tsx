@@ -5,7 +5,7 @@ import StatelessHello from '../StatelessHello';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <StateFulHello name="Andres" enthusiasmLevel={9} />
+      <StateFulHello name="Andres" enthusiasmLevel={0} />
       <StatelessHello name="Sergio" enthusiasmLevel={1} />
     </div>
   );

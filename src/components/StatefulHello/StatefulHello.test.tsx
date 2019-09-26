@@ -23,8 +23,7 @@ it('throws when the enthusiasm level is negative', () => {
   }).toThrow();
 });
 
-it('throws when the enthusiasm level is 0', () => {
-  expect(() => {
-    enzyme.shallow(<StatefulHello name="Andres" enthusiasmLevel={0} />);
-  }).toThrow();
+it('renders the correct text with and explicit enthusiasm level of 0', () => {
+  const hello = enzyme.shallow(<StatefulHello name="Andres" enthusiasmLevel={0} />);
+  expect(hello.find('.greeting').text()).toEqual('Hello Andres!');
 });
